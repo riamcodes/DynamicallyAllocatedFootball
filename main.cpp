@@ -8,7 +8,7 @@ int main() {
     Scrimmage * s = new Scrimmage();
     s->play();
     char ans;
-    cout << "Print game replay (Y/N)? ";
+    cout << "Print game replay (Y/N)?";
     cin >> ans;
     if (toupper(ans) == 'Y')
         s->printReplay();

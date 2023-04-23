@@ -3,4 +3,5 @@ project(program6-template)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(program6-template main.cpp Team.cpp Play.cpp Scrimmage.cpp)
+add_executable(program6-template main.cpp Play.h Play.cpp Team.cpp Scrimmage.cpp RunPlay.cpp PassPlay.cpp KickPlay.cpp)
+
