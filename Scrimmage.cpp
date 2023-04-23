@@ -33,7 +33,7 @@ void Scrimmage::play() {
    // loop until game ends
    while(true) {
        //   Call takeTurn for each team
-       cout << teams.at(0).getName() << "s Turn" << endl;
+       cout << teams.at(0).getName() << "'s Turn" << endl;
        teams.at(0).takeTurn();
        printScoreboard();
 
@@ -45,7 +45,7 @@ void Scrimmage::play() {
        }
 
        //next turn
-       cout << teams.at(1).getName() << "s Turn" << endl;
+       cout << teams.at(1).getName() << "'s Turn" << endl;
        teams.at(1).takeTurn();
        printScoreboard();
        cout << endl;
