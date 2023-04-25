@@ -23,14 +23,17 @@ int Play ::getKickPlayValue() {}
 //rule of 3
 
 //destructor
-Play :: ~Play(){}
+Play :: ~Play(){delete yardsMoved;}
 //copy constructor
-Play :: Play(const Play &copy){}
+Play :: Play(const Play &copy){yardsMoved = new int(*copy.yardsMoved);}
 
 
 //copy assignment operator
 Play &Play::operator=(const Play &copy) {
     if (this != &copy) {
+        delete yardsMoved;
+         yardsMoved = new int;
+        *yardsMoved = *(copy.yardsMoved);
     }
     return *this;
 }

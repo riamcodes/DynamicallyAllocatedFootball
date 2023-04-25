@@ -20,18 +20,16 @@ void PassPlay :: Print(){
 
 //destructor
 PassPlay :: ~PassPlay(){
-    // ??? does anything go inside here
-   // delete yardsMoved; //says can't delete expression type of int
+    delete yardsMoved;
 }
 //copy constructor
-PassPlay :: PassPlay(const PassPlay &copy){
-// ??? does anything go inside here
-}
-
-//copy assignment operator is this correct??
-PassPlay &PassPlay::operator=(const PassPlay &copy) {
+PassPlay :: PassPlay(const PassPlay &copy) {
     if (this != &copy) {
-        Play:: operator = (copy);
+        delete yardsMoved;
+        yardsMoved = new int;
+        *yardsMoved = *(copy.yardsMoved);
     }
-    return *this;
+//copy assignment operator
+//copy assignment operator declared inline because it wouldn't accept it here for some reason
+//see Play.h file
 }

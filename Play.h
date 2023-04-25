@@ -16,8 +16,8 @@ using namespace std;
 class Play {
 public:
     Play();
-    int getYardsMoved(){return yardsMoved;}
-    void setYardsMoved(int yardsMoved){this->yardsMoved = yardsMoved;}
+    int getYardsMoved(){return *yardsMoved;} // changed
+    void setYardsMoved(int yardsMoved){this->yardsMoved = &yardsMoved;} // changed
     virtual void start();
    virtual int getKickPlayValue();
     virtual void Print();
@@ -28,9 +28,11 @@ public:
     Play& operator=(const Play&);//copy Constructor
    //Play class definition with private and public member definitions
 
+
 protected:
    // string playType;
-    int yardsMoved;
+   // int yardsMoved;
+   int *yardsMoved = new int;
 };
 
 //add RunPlay as a kind of play
@@ -41,23 +43,28 @@ public:
     void Print();
     //rule of 3 inline declaration
 // Copy constructor
-   RunPlay(const RunPlay& copy) : Play(copy) {}
+   RunPlay(const RunPlay& copy) : Play(copy) {
+        yardsMoved = new int(*copy.yardsMoved);
+   }
 
  // Copy assignment operator
-    RunPlay& operator=(const RunPlay& other) {
-        if (this != &other) {
-            Play::operator=(other);
+    RunPlay& operator=(const RunPlay& copy) {
+        if (this != &copy) {
+            delete yardsMoved;
+            yardsMoved = new int;
+            *yardsMoved = *(copy.yardsMoved);
         }
         return *this;
     }
 // Destructor
-    ~RunPlay() {}
+    ~RunPlay() {delete yardsMoved;}
 protected:
 
 };
 
 //add PassPlay as a kind of play
 //rule of 3 declaration and written in class
+//copy assignment operator written inline because for some reason it wouldn't let me write it in the class
 class PassPlay : public Play {
 public:
     PassPlay();
@@ -65,7 +72,15 @@ public:
     void Print();
     ~PassPlay(); //Destructor
     PassPlay(const PassPlay&);//copy constructor
-    PassPlay& operator=(const PassPlay&);//copy assignment operator
+    //copy assignment operator inline
+    PassPlay& operator=(const PassPlay& copy) {
+        if (this != &copy) {
+            delete yardsMoved;
+            yardsMoved = new int;
+            *yardsMoved = *(copy.yardsMoved);
+        }
+        return *this;}
+
 protected:
 };
 
@@ -80,17 +95,19 @@ public:
     int getKickPlayValue();
 //rule of 3 inline declaration
      // Copy constructor
-    KickPlay(const RunPlay& copy) : Play(copy) {}
+    KickPlay(const KickPlay& copy) : Play(copy) { yardsMoved = new int(*copy.yardsMoved);}
 
     // Copy assignment operator
-    KickPlay& operator=(const KickPlay& other) {
-        if (this != &other) {
-            Play::operator=(other);
+    KickPlay& operator=(const KickPlay& copy) {
+        if (this != &copy) {
+            delete yardsMoved;
+            yardsMoved = new int;
+            *yardsMoved = *(copy.yardsMoved);
         }
         return *this;
     }
 // Destructor
-    ~KickPlay() {}
+    ~KickPlay() {delete yardsMoved;}
 
 protected:
     int kickPlayValue;
