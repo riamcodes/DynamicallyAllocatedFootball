@@ -13,21 +13,21 @@ void PassPlay :: start(){
     setYardsMoved(randPassVal);
 }
 void PassPlay :: Print(){
-    cout <<"Pass play for " <<  yardsMoved << " yards" << endl;
+    cout <<"Pass play for " <<  yardsMoved  << " yards" << endl;//used to be *getYardsMoved
 }
 
 //rule of 3
 
 //destructor
-PassPlay :: ~PassPlay(){
-    delete yardsMoved;
+PassPlay :: ~PassPlay(){/*
+    delete yardsMoved;*/
 }
 //copy constructor
 PassPlay :: PassPlay(const PassPlay &copy) {
-    if (this != &copy) {
+    if (this != &copy) {/*
         delete yardsMoved;
         yardsMoved = new int;
-        *yardsMoved = *(copy.yardsMoved);
+        *yardsMoved = *(copy.yardsMoved);*/
     }
 //copy assignment operator
 //copy assignment operator declared inline because it wouldn't accept it here for some reason

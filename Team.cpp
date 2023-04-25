@@ -71,7 +71,7 @@ void Team::takeTurn() {
             //edit and invoke methods on the last play
             lastPlay->start();
             //When the Play has finished its start method, get its yardsMoved value
-            int yardsMoved = lastPlay->getYardsMoved();
+            int yardsMoved = lastPlay-> getYardsMoved();
             lastPlay->setYardsMoved(yardsMoved);
             plays.push_back(lastPlay);
             //target to move 10 yards
@@ -132,7 +132,7 @@ void Team::takeTurn() {
             //When the Play has finished its start method, get its yardsMoved value
             int yardsMoved = lastPlay->getYardsMoved();
             lastPlay->setYardsMoved(yardsMoved);
-            plays.push_back(lastPlay);
+            plays.push_back(lastPlay); //CHANGED CHANGED CHANGED
             //target to move 10 yards
 
             //add yardsMoved to the location
@@ -166,6 +166,7 @@ void Team::takeTurn() {
             }
             cout << "  " << (target - location) << " yards to 1st down" << endl;
         }
+
     }
 }
 
