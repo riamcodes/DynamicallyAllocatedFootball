@@ -1,8 +1,8 @@
 //Ria Mukherji
 //Lab 4
 //Ken Howard
-#ifndef PROGRAM4_SPRING2023_SCRIMMAGE_H
-#define PROGRAM4_SPRING2023_SCRIMMAGE_H
+#ifndef PROGRAM6_SCRIMMAGE_H
+#define PROGRAM6_SCRIMMAGE_H
 #include "Team.h"
 
 class Scrimmage {

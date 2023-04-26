@@ -7,17 +7,17 @@
 
 KickPlay::KickPlay() {
     srand(time(NULL));
-    yardsMoved = 0;
+    *yardsMoved = 0;
 }
 
 
 void KickPlay :: start(){
     vector <int> possibleKickValues = {0,1};
-    kickPlayValue = possibleKickValues.at(rand() % 2);
+    *kickPlayValue = possibleKickValues.at(rand() % 2);
 }
 
 int KickPlay :: getKickPlayValue(){
-    return kickPlayValue;
+    return *kickPlayValue;
 }
 
 void KickPlay :: Print(){

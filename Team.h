@@ -2,8 +2,8 @@
 //Lab 4
 //Ken Howard
 
-#ifndef PROGRAM4_SPRING2023_TEAM_H
-#define PROGRAM4_SPRING2023_TEAM_H
+#ifndef PROGRAM6_TEAM_H
+#define PROGRAM6_TEAM_H
 #include <string>
 #include <vector>
 #include "Play.h"

@@ -2,12 +2,9 @@
 // Created by riamu on 4/22/2023.
 //
 #include "Play.h"
-//RunPlay :: RunPlay();
-
-
 RunPlay :: RunPlay(){
     srand(time(NULL));
-    yardsMoved = 0;
+    *yardsMoved = 0;
 }
 
 
@@ -18,7 +15,7 @@ void RunPlay :: start(){
 }
 void RunPlay :: Print(){
 
-    cout <<"Run play for " <<  yardsMoved << " yards" << endl;
+    cout <<"Run play for " <<  *yardsMoved << " yards" << endl;
 }
 
 //rule of 3 inline declaration in Play.cpp

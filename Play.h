@@ -2,8 +2,8 @@
 // Created by Ken Howard on 3/8/23.
 //
 
-#ifndef PROGRAM6-TEMPLATE_PLAY_H
-#define PROGRAM6-TEMPLATE_PLAY_H
+#ifndef PROGRAM6_TEMPLATE_PLAY_H
+#define PROGRAM6_TEMPLATE_PLAY_H
 #include <string>
 #include <iostream>
 #include <ctime>
@@ -16,8 +16,8 @@ using namespace std;
 class Play {
 public:
     Play();
-    int getYardsMoved(){return yardsMoved;} // changed
-    void setYardsMoved(int yardsMoved){this->yardsMoved = yardsMoved;} // changed
+    int getYardsMoved(){return *yardsMoved;} // changed
+    void setYardsMoved(int yardsMoved) {*this->yardsMoved = yardsMoved;}//{this->yardsMoved = yardsMoved;} // changed
     virtual void start();
    virtual int getKickPlayValue();
     virtual void Print();
@@ -30,9 +30,8 @@ public:
 
 
 protected:
-   // string playType;
    // int yardsMoved;
-   int yardsMoved;// = new int;
+   int *yardsMoved = new int;
 };
 
 //add RunPlay as a kind of play
@@ -43,21 +42,21 @@ public:
     void Print();
     //rule of 3 inline declaration
 // Copy constructor
-   RunPlay(const RunPlay& copy) : Play(copy) {/*
-        yardsMoved = new int(*copy.yardsMoved);*/
+   RunPlay(const RunPlay& copy) : Play(copy) {
+        yardsMoved = new int(*copy.yardsMoved);
    }
 
  // Copy assignment operator
     RunPlay& operator=(const RunPlay& copy) {
-        if (this != &copy) {/*
+        if (this != &copy) {
             delete yardsMoved;
             yardsMoved = new int;
-            *yardsMoved = *(copy.yardsMoved);*/
+            *yardsMoved = *(copy.yardsMoved);
         }
         return *this;
     }
 // Destructor
-    ~RunPlay() {/*delete yardsMoved;*/}
+    ~RunPlay() {delete yardsMoved;}
 protected:
 
 };
@@ -75,9 +74,9 @@ public:
     //copy assignment operator inline
     PassPlay& operator=(const PassPlay& copy) {
         if (this != &copy) {
-          /*  delete yardsMoved;
+          delete yardsMoved;
             yardsMoved = new int;
-            *yardsMoved = *(copy.yardsMoved);*/
+            *yardsMoved = *(copy.yardsMoved);
         }
         return *this;}
 
@@ -93,7 +92,7 @@ public:
     void start();
     void Print();
     int getKickPlayValue();
-/*//rule of 3 inline declaration
+//rule of 3 inline declaration
      // Copy constructor
     KickPlay(const KickPlay& copy) : Play(copy) {
         yardsMoved = new int(*copy.yardsMoved);
@@ -118,10 +117,10 @@ public:
     ~KickPlay() {
         delete yardsMoved;
         delete kickPlayValue;
-    }*/
+    }
 
 protected:
-    int kickPlayValue;// = new int;
+    int *kickPlayValue = new int;
 };
 
 
